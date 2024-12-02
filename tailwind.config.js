@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 export default {
     darkMode: ["class"],
     content: [
@@ -6,55 +9,42 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-  	extend: {
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		}
-  	}
+    extend: {
+      colors: {
+        background: {
+          DEFAULT: '#1C1C1C', // Dark background
+          accent: '#272727',  // Slightly lighter sections
+        },
+        primary: {
+          DEFAULT: '#B88742', // Golden hues for highlights
+          dark: '#8C6A30',    // Darker gold for accents
+        },
+        secondary: {
+          DEFAULT: '#9E534E', // Red-brown hues for buttons and danger
+          dark: '#703834',    // Darker variant
+        },
+        mystical: {
+          DEFAULT: '#4E88A1', // Cool blue for magical effects
+          dark: '#39667A',    // Darker mystical blue
+        },
+        text: {
+          light: '#E2E2E2',    // Light text for contrast
+          muted: '#A8A8A8',    // Muted for less emphasis
+        },
+      },
+      fontFamily: {
+        body: ['"Cinzel Decorative"', ...fontFamily.mono], // PoE-style font for headers
+        display: ['"Cinzel"', ...fontFamily.sans],
+      },
+      boxShadow: {
+        'glow-gold': '0 0 15px 2px rgba(184, 135, 66, 0.6)', // Glowing golden effects
+        'glow-blue': '0 0 15px 2px rgba(78, 136, 161, 0.6)', // Glowing blue effects
+      },
+      backgroundImage: {
+        'texture-dark': "url('/path/to/poe-texture.jpg')", // Add a gritty dark texture
+        'texture-gold': "url('/path/to/poe-gold.jpg')",    // Optional golden theme
+      },
+    },
   },
   plugins: [require("tailwindcss-animate")],
 }
